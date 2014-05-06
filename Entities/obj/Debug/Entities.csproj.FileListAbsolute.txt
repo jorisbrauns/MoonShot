@@ -1,0 +1,4 @@
+c:\users\ex02015\documents\visual studio 2013\Projects\PersonalTemplate\Entities\bin\Debug\Entities.dll
+c:\users\ex02015\documents\visual studio 2013\Projects\PersonalTemplate\Entities\bin\Debug\Entities.pdb
+c:\users\ex02015\documents\visual studio 2013\Projects\PersonalTemplate\Entities\obj\Debug\Entities.dll
+c:\users\ex02015\documents\visual studio 2013\Projects\PersonalTemplate\Entities\obj\Debug\Entities.pdb

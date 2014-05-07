@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using DataAccess.Factories;
 using DataAccess.Repositories.Implementations;
 using DataAccess.UnitOfWork;
@@ -26,8 +27,18 @@ namespace PersonalTemplate.Controllers
         {
             using (IUnitOfWork uow = _unitOfWorkFactory.CreateUnitOfWork())
             {
-                //_bankRepository.Add(uow, new Bank{Naam = "KBC"});
+                var newObject = new Bank {Naam = "KBC"};
+
+                _bankRepository.Add(uow, newObject);
+
                 var result = _bankRepository.FindAll(uow);
+
+                var firstOrDefault = result.FirstOrDefault();
+                if (firstOrDefault != null)
+                {
+                    _bankRepository.Delete(uow, firstOrDefault);
+                }
+
 
                 uow.Save();
             }

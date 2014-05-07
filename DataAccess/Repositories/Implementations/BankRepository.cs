@@ -12,9 +12,10 @@ namespace DataAccess.Repositories.Implementations
             return GetContext(uow).Banken.ToList();
         }
 
-        public override void Add(IUnitOfWork uow, Bank entity)
+        public override Bank Get(IUnitOfWork uow, int id)
         {
-            GetContext(uow).Banken.Add(entity);
+            return FindBy(uow, x => x.BankId == id).FirstOrDefault();
         }
+
     }
 }

@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Data.Entity;
+using System.Linq;
+using System.Linq.Expressions;
 using DataAccess.UnitOfWork;
 
 namespace DataAccess.Repositories
@@ -13,25 +16,29 @@ namespace DataAccess.Repositories
             return unitOfWork.Context;
         }
 
-        public virtual TEntity Get(IUnitOfWork uow, int id)
+        public abstract TEntity Get(IUnitOfWork uow, int id);
+
+        protected virtual IQueryable<TEntity> FindBy(IUnitOfWork uow, Expression<Func<TEntity, bool>> predicate)
         {
-            throw new NotImplementedException();
+            IQueryable<TEntity> query = GetContext(uow)
+                .Set<TEntity>()
+                .Where(predicate);
+            return query;
         }
 
         public virtual void Add(IUnitOfWork uow, TEntity entity)
         {
-            throw new NotImplementedException();
+            GetContext(uow).Set<TEntity>().Add(entity);
         }
 
         public virtual void Delete(IUnitOfWork uow, TEntity entity)
         {
-            throw new NotImplementedException();
+            GetContext(uow).Set<TEntity>().Remove(entity);
         }
 
         public void Update(IUnitOfWork uow, TEntity entity)
         {
-            var ctx = GetContext(uow);
-            //ctx.Entry(entity).State = System.Data.EntityState.Modified;
+            GetContext(uow).Entry(entity).State = EntityState.Modified;
         }
     }
 }

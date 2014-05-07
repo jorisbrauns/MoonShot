@@ -34,7 +34,6 @@ namespace DataAccess
              */
         }
 
-
         public virtual IDbSet<Bank> Banken { get; set; }
     }
 }

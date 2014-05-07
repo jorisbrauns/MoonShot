@@ -9,6 +9,7 @@ namespace DataAccess
     {
         int SaveChanges();
         DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
+        DbSet<TEntity> Set<TEntity>() where TEntity : class;
 
         IDbSet<Bank> Banken { get; set; }
     }

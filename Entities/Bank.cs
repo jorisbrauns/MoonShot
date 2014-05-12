@@ -5,6 +5,6 @@ namespace Entities
     {
         [Required]
         [MaxLength(30)]
-        public string Naam { get; set; }
+        public string Name { get; set; }
     }
 }

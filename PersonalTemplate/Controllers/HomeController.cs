@@ -34,7 +34,7 @@ namespace PersonalTemplate.Controllers
                 //_bankRepository.Add(new Bank { Naam = "ING" });
 
                 var list = _bankRepository.FindAll();
-                var allBanks = string.Join(", ", list.Select(w => w.Naam));
+                var allBanks = string.Join(", ", list.Select(w => w.Name));
 
                 int num = _unitOfWorkFactory.Save();
 

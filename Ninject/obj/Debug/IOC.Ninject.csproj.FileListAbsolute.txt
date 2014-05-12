@@ -24,7 +24,6 @@ C:\Users\Frederik\Downloads\MyMVCTemplate-master\MyMVCTemplate-master\Ninject\bi
 C:\Users\Frederik\Downloads\MyMVCTemplate-master\MyMVCTemplate-master\Ninject\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Users\Frederik\Downloads\MyMVCTemplate-master\MyMVCTemplate-master\Ninject\obj\Debug\IOC.Ninject.dll
 C:\Users\Frederik\Downloads\MyMVCTemplate-master\MyMVCTemplate-master\Ninject\obj\Debug\IOC.Ninject.pdb
-C:\Users\ex02015\Documents\Visual Studio 2013\Projects\MyMVCTemplate\Ninject\obj\Debug\IOC.Ninject.csprojResolveAssemblyReference.cache
 C:\Users\ex02015\Documents\Visual Studio 2013\Projects\MyMVCTemplate\Ninject\bin\Debug\IOC.Ninject.dll.config
 C:\Users\ex02015\Documents\Visual Studio 2013\Projects\MyMVCTemplate\Ninject\bin\Debug\IOC.Ninject.dll
 C:\Users\ex02015\Documents\Visual Studio 2013\Projects\MyMVCTemplate\Ninject\bin\Debug\IOC.Ninject.pdb
@@ -38,6 +37,7 @@ C:\Users\ex02015\Documents\Visual Studio 2013\Projects\MyMVCTemplate\Ninject\bin
 C:\Users\ex02015\Documents\Visual Studio 2013\Projects\MyMVCTemplate\Ninject\bin\Debug\EntityFramework.xml
 C:\Users\ex02015\Documents\Visual Studio 2013\Projects\MyMVCTemplate\Ninject\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\ex02015\Documents\Visual Studio 2013\Projects\MyMVCTemplate\Ninject\bin\Debug\Ninject.xml
+C:\Users\ex02015\Documents\Visual Studio 2013\Projects\MyMVCTemplate\Ninject\obj\Debug\IOC.Ninject.csprojResolveAssemblyReference.cache
 C:\Users\ex02015\Documents\Visual Studio 2013\Projects\MyMVCTemplate\Ninject\obj\Debug\IOC.Ninject.dll
 C:\Users\ex02015\Documents\Visual Studio 2013\Projects\MyMVCTemplate\Ninject\obj\Debug\IOC.Ninject.pdb
 C:\Users\ex02015\Documents\Visual Studio 2013\Projects\MyMVCTemplate\Ninject\bin\Debug\System.Web.Mvc.dll

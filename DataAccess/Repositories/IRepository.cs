@@ -1,13 +1,14 @@
-﻿using DataAccess.UnitOfWork;
+﻿using System.Collections.Generic;
 
 namespace DataAccess.Repositories
 {
     public interface IRepository<TEntity>
     {
-        TEntity Get(IUnitOfWork uow, int id);
+        TEntity Get(int id);
+        IEnumerable<TEntity> FindAll();
 
-        void Add(IUnitOfWork uow, TEntity entity);
-        void Delete(IUnitOfWork uow, TEntity entity);
-        void Update(IUnitOfWork uow, TEntity entity);
+        void Add(TEntity entity);
+        void Delete(TEntity entity);
+        void Update(TEntity entity);
     }
 }

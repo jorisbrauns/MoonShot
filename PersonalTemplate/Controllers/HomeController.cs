@@ -1,21 +1,23 @@
-﻿using System.Linq;
+﻿using System;
+using System.Data.Entity.Validation;
+using System.Linq;
 using System.Web.Mvc;
-using DataAccess.Factories;
 using DataAccess.Repositories.Implementations;
-using DataAccess.UnitOfWork;
+using DataAccess.uow;
 using Entities;
+using WebGrease.Css.Extensions;
 
 namespace PersonalTemplate.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IUnitOfWorkFactory _unitOfWorkFactory;
+        private readonly IUnitOfWork _unitOfWorkFactory;
         private readonly IBankRepository _bankRepository;
 
-        public HomeController()
+        public HomeController(IUnitOfWork uow, IBankRepository bankRepository)
         {
-             _unitOfWorkFactory = new UnitOfWorkFactory();
-            _bankRepository = new BankRepository();
+            _unitOfWorkFactory = uow;
+            _bankRepository = bankRepository;
         }
 
         public ActionResult Index()
@@ -25,22 +27,40 @@ namespace PersonalTemplate.Controllers
 
         public ActionResult About()
         {
-            using (IUnitOfWork uow = _unitOfWorkFactory.CreateUnitOfWork())
+            try
             {
-                var newObject = new Bank {Naam = "KBC"};
+                //_bankRepository.Add(new Bank { Naam = "KBC"});
+                //_bankRepository.Add(new Bank { Naam = "Argenta" });
+                //_bankRepository.Add(new Bank { Naam = "ING" });
 
-                _bankRepository.Add(uow, newObject);
+                var list = _bankRepository.FindAll();
+                var allBanks = string.Join(", ", list.Select(w => w.Naam));
 
-                var result = _bankRepository.FindAll(uow);
+                int num = _unitOfWorkFactory.Save();
 
-                var firstOrDefault = result.FirstOrDefault();
-                if (firstOrDefault != null)
-                {
-                    _bankRepository.Delete(uow, firstOrDefault);
-                }
+                ViewBag.result = "Saved! <br><br>" + allBanks;
+            }
+            catch (DbEntityValidationException ex)
+            {
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = ex.EntityValidationErrors
+                    .SelectMany(x => x.ValidationErrors)
+                    .Select(x => x.ErrorMessage);
 
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
 
-                uow.Save();
+                // Combine the original exception message with the new one.
+                var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
+
+                ViewBag.result = exceptionMessage;
+
+                // Throw a new DbEntityValidationException with the improved exception message.
+                //throw new DbEntityValidationException(exceptionMessage, ex.EntityValidationErrors);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.result = ex.Message;
             }
 
             return View();

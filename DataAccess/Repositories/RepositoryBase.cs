@@ -1,44 +1,56 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using DataAccess.UnitOfWork;
-
+using DataAccess.uow;
+using Entities;
 namespace DataAccess.Repositories
 {
-    public abstract class RepositoryBase<TEntity> : MarshalByRefObject, IRepository<TEntity>
-        where TEntity : class
+    public abstract class RepositoryBase<TEntity> :  IRepository<TEntity>
+        where TEntity : BaseEntity
     {
-        protected IEntityContext GetContext(IUnitOfWork uow)
+        private readonly IUnitOfWork _unitOfWork;
+
+        protected IDbSet<TEntity> DbSet { get; private set; }
+
+        protected RepositoryBase(IUnitOfWork uow)
         {
-            var unitOfWork = uow as UnitOfWorkBase;
-            if (unitOfWork == null) throw new ArgumentException(String.Format("uow is niet van type {0}.", typeof(IEntityContext).Name), "uow");
-            return unitOfWork.Context;
+            _unitOfWork = uow;
+            DbSet = uow.Context.Set<TEntity>();
         }
 
-        public abstract TEntity Get(IUnitOfWork uow, int id);
-
-        protected virtual IQueryable<TEntity> FindBy(IUnitOfWork uow, Expression<Func<TEntity, bool>> predicate)
+        public TEntity Get(int id)
         {
-            IQueryable<TEntity> query = GetContext(uow)
-                .Set<TEntity>()
-                .Where(predicate);
+            return FindBy(x => x.Id == id).FirstOrDefault();
+        }
+
+        public IEnumerable<TEntity> FindAll()
+        {
+            return DbSet.ToList();
+        }
+
+        protected virtual IQueryable<TEntity> FindBy(Expression<Func<TEntity, bool>> predicate)
+        {
+            IQueryable<TEntity> query =
+                DbSet
+               .Where(predicate);
             return query;
         }
 
-        public virtual void Add(IUnitOfWork uow, TEntity entity)
+        public virtual void Add(TEntity entity)
         {
-            GetContext(uow).Set<TEntity>().Add(entity);
+            DbSet.Add(entity);
         }
 
-        public virtual void Delete(IUnitOfWork uow, TEntity entity)
+        public virtual void Delete(TEntity entity)
         {
-            GetContext(uow).Set<TEntity>().Remove(entity);
+            DbSet.Remove(entity);
         }
 
-        public void Update(IUnitOfWork uow, TEntity entity)
+        public void Update(TEntity entity)
         {
-            GetContext(uow).Entry(entity).State = EntityState.Modified;
+            _unitOfWork.Context.Entry(entity).State = EntityState.Modified;
         }
     }
 }

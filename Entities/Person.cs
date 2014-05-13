@@ -8,8 +8,8 @@ namespace Entities
 {
     public class Person : BaseEntity
     {
-        public string Voornaam { get; set; }
-        public string Achternaam { get; set; }
+        public string Firsname { get; set; }
+        public string Lastname { get; set; }
         public int Leeftijd { get; set; }
 
     }

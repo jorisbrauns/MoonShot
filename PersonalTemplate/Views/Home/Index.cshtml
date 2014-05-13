@@ -1,4 +1,74 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿<div ng-controller="HomeController" ng-cloak>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th ng-repeat="header in headers">
+                    <sort-by onsort="onSort" sortdir="filterCriteria.sortDir" sortedby="filterCriteria.Sorting" sortvalue="{{ header.value }}">{{ header.title }}</sort-by>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>#</td>
+                <td><input data-on-enter-blur data-on-blur-change="filterResult()" ng-model="filterCriteria.FilterNaam" type="text" class="form-control" /></td>
+                <td>
+                    <select ng-change="filterResult()" ng-model="filterCriteria.FilterSector" ng-options="sector.Omschrijving as sector.Omschrijving for sector in sectoren | orderBy:'Omschrijving'" class="form-control">
+                        <option value=""> </option>
+                    </select>
+                </td>
+            </tr>
+            <tr ng-repeat="werkplaats in werkplaatsen">
+                <td><a ng-click="open(werkplaats)">{{werkplaats.WerkplaatsCrsNr}}</a></td>
+                <td>{{werkplaats.Naam}}</td>
+                <td>{{werkplaats.SectorOmschrijving}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div ng-show="totalItems == 0">
+        <h3>Geen werkplaatsen gevonden</h3>
+    </div>
 
+    <div class="row">
+
+        <div class="col-xs-12 col-md-11">
+            <pagination boundary-links="true" ng-show="totalItems > filterCriteria.PageSize" max-size="15" rotate="false"
+                        previous-text=" &lsaquo;" next-text="&rsaquo;" items-per-page="filterCriteria.PageSize"
+                        first-text="&laquo;" last-text="&raquo;"
+                        total-items="totalItems" ng-model="filterCriteria.Page" ng-change="fetchResult()"></pagination>
+        </div>
+
+        <div class="col-xs-12 col-md-1">
+            <select ng-model="filterCriteria.PageSize" class="form-control" ng-change="fetchResult()"
+                    ng-options="t for t in AvailablePageSizes">
+                <option>--</option>
+            </select>
+        </div>
+
+    </div>
+
+    <script type="text/ng-template" id="Update">
+        <div class="modal-header">
+            <h3 class="modal-title">Werkplaats bewerken</h3>
+        </div>
+        <div class="modal-body">
+
+            <alert ng-repeat="bericht in fouten" type="{{bericht.type}}" close="closeAlert($index)">{{bericht.msg}}</alert>
+
+            <div class="form-group">
+                <label for="Naam">Naam</label>
+                <input id="Naam" name="werkplaats.Naam" ng-model="werkplaats.Naam" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="Sector">Sector</label>
+                <select ng-model="werkplaats.sector" class="form-control"
+                        ng-options="value as value.Omschrijving for value in sectoren | orderBy:'Omschrijving'">
+                    <option>--</option>
+                </select>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">Opslagen</button>
+            <button class="btn btn-warning" ng-click="cancel()">Annuleer</button>
+        </div>
+    </script>
+</div>

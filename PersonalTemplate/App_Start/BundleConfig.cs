@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace PersonalTemplate
 {
@@ -19,7 +18,13 @@ namespace PersonalTemplate
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                       "~/Scripts/angular.js",
-                      "~/Scripts/angular-ui/ui-bootstrap-tpls.js"));
+                      "~/Scripts/Angular/Bootstrap.js",
+                      "~/Scripts/ngLoadingBar.js",
+                     "~/Scripts/ngAnimate.js",
+
+                      "~/Scripts/angular-ui/ui-bootstrap-tpls.js",
+                      "~/Scripts/Angular/HomeController.js"
+            ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",

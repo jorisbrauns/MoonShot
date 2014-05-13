@@ -12,7 +12,11 @@ namespace Moonshot
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
-                "~/Scripts/angular.js"
+                "~/Scripts/angular.js",
+                "~/Scripts/angular-route.js",
+                "~/Controllers/Controller.js",
+                "~/Controllers/HomeController.js",
+                "~/app.js"
                 //"~/Scripts/jquery-{version}.js"
             ));
 

@@ -1,6 +1,5 @@
-﻿'use strict';
-ctr.controller('AboutController', ['$scope', '$log', function ($scope, $log) {
-
+﻿ctr.controller('AboutController', ['$scope', '$log', function ($scope, $log) {
+    "use strict";
  
 
     }

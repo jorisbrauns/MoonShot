@@ -1,6 +1,6 @@
-﻿'use strict';
-ctr.controller('HomeController', ['$scope', '$log', function ($scope, $log) {
-
+﻿ctr.controller('HomeController', ['$rootScope', '$scope', '$log', function ($rootScope, $scope, $log) {
+    "use strict";
+        $rootScope.test = "Hallo wereld";
         $scope.AvailablePageSizes = [10, 25, 50, 75, 100];
         $scope.totalItems = 25;
         $scope.filterCriteria = {
@@ -10,7 +10,7 @@ ctr.controller('HomeController', ['$scope', '$log', function ($scope, $log) {
 
         $scope.fetchResult = function() {
             $log.info('Feth results: ' + new Date());
-        }
+        };
 
     }
 ]);

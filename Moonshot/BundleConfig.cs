@@ -19,6 +19,7 @@ namespace Moonshot
                 "~/Scripts/angular-animate.js",
 
                 //Base includes
+                "~/Controllers/BaseController.js",
                 "~/Controllers/*.js",
                 "~/Directives/*.js",
                 "~/Filters/*.js",

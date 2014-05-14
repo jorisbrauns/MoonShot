@@ -30,8 +30,10 @@ namespace WebApi.Controllers
         }
 
         // POST: api/Default
-        public void Post([FromBody]string value)
+        public void Post(Person person)
         {
+            _personRepository.Add(person);
+            _unitOfWork.Save();
         }
 
         // PUT: api/Default/5

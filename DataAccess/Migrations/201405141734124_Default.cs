@@ -21,9 +21,9 @@ namespace DataAccess.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Firsname = c.String(),
+                        Firstname = c.String(),
                         Lastname = c.String(),
-                        Leeftijd = c.Int(nullable: false),
+                        Age = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             

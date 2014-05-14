@@ -5,7 +5,7 @@ namespace IOC.Ninject
     {
         public IDependencyScope BeginScope()
         {
-            return this;
+            return new WebApiNinjectDependencyResolver();
         }
     }
 }

@@ -8,9 +8,9 @@ namespace Entities
 {
     public class Person : BaseEntity
     {
-        public string Firsname { get; set; }
+        public string Firstname { get; set; }
         public string Lastname { get; set; }
-        public int Leeftijd { get; set; }
+        public int Age { get; set; }
 
     }
 }

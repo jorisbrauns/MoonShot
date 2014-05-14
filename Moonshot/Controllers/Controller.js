@@ -1,1 +1,0 @@
-﻿var ctr = angular.module('moonShot.controllers', []);

@@ -1,0 +1,24 @@
+﻿<div class="row">
+
+    <div class="col-xs-12 col-md-10">
+        <pagination boundary-links="true" ng-show="totalItems > filterCriteria.PageSize" max-size="15" rotate="false"
+                    previous-text=" &lsaquo;" next-text="&rsaquo;" items-per-page="filterCriteria.PageSize"
+                    first-text="&laquo;" last-text="&raquo;"
+                    total-items="totalItems" ng-model="filterCriteria.Page" ng-change="fetchResult()"></pagination>
+    </div>
+
+    <div class="col-xs-12 col-md-2">
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-list"></i>
+            </span>
+            <select ng-model="filterCriteria.PageSize" class="form-control" ng-change="fetchResult()"
+                    ng-options="t for t in AvailablePageSizes">
+                <option>--</option>
+            </select>
+        </div>
+
+
+    </div>
+
+</div>

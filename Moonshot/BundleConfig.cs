@@ -12,17 +12,25 @@ namespace Moonshot
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                //Requirements
                 "~/Scripts/angular.js",
+                "~/Scripts/angular-ui/ui-bootstrap-tpls.js",
                 "~/Scripts/angular-route.js",
-                "~/Controllers/Controller.js",
-                "~/Controllers/HomeController.js",
+                "~/Scripts/angular-animate.js",
+
+                //Base includes
+                "~/Controllers/*.js",
+                "~/Directives/*.js",
+                "~/Filters/*.js",
+                "~/Plugins/*.js",
                 "~/app.js"
-                //"~/Scripts/jquery-{version}.js"
             ));
 
             bundles.Add(new StyleBundle("~/bundles/css").Include(
                 "~/Content/bootstrap.css"
             ));
+
+            BundleTable.EnableOptimizations = false;
         }
     }
 }

@@ -14,7 +14,6 @@ namespace PersonalTemplate
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            DependencyResolver.SetResolver(new NinjectDependencyResolver());
         }
     }
 }

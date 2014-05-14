@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30324.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC", "PersonalTemplate\MVC.csproj", "{C9F2B216-8A5F-4E34-B8AF-771DDE1B10CD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "DataAccess\Repositories.csproj", "{850E6D29-37F8-466B-AAAB-A40854D49B3C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{DC51297F-B3A6-4101-8F34-F90C6F7A6506}"
@@ -26,10 +24,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C9F2B216-8A5F-4E34-B8AF-771DDE1B10CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C9F2B216-8A5F-4E34-B8AF-771DDE1B10CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C9F2B216-8A5F-4E34-B8AF-771DDE1B10CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C9F2B216-8A5F-4E34-B8AF-771DDE1B10CD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{850E6D29-37F8-466B-AAAB-A40854D49B3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{850E6D29-37F8-466B-AAAB-A40854D49B3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{850E6D29-37F8-466B-AAAB-A40854D49B3C}.Release|Any CPU.ActiveCfg = Release|Any CPU

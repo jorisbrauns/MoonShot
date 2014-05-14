@@ -8,16 +8,8 @@ namespace IOC.Ninject.Modules
         public override void Load()
         {
             Bind<IBankRepository>().To<BankRepository>();
-            Bind<ITEst>().To<TEst>();
+            Bind<IPersonRepository>().To<PersonRepository>();
         }
     }
 
-    public interface ITEst
-    {
-        
-    }
-    public class TEst : ITEst
-    {
-        
-    }
 }

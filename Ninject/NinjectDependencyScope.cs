@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Web.Mvc;
+using System.Web.Http.Dependencies;
 using DataAccess;
 using DataAccess.uow;
 using IOC.Ninject.Modules;
@@ -9,20 +9,38 @@ using Ninject.Syntax;
 
 namespace IOC.Ninject
 {
-    public class NinjectDependencyResolver : IDependencyResolver
+    public abstract class NinjectDependencyScope : IDependencyScope
     {
-        private readonly IKernel _kernel;
-        public NinjectDependencyResolver()
+        private IKernel _kernel;
+
+        protected NinjectDependencyScope()
         {
             _kernel = new StandardKernel();
             AddBindings();
         }
+
+        public void Dispose()
+        {
+            var disposable = _kernel as IDisposable;
+            if (disposable != null)
+                disposable.Dispose();
+
+            _kernel = null;
+        }
+
         public object GetService(Type serviceType)
         {
+            if (_kernel == null)
+                throw new ObjectDisposedException("this", "This scope has already been disposed");
+
             return _kernel.TryGet(serviceType);
         }
+
         public IEnumerable<object> GetServices(Type serviceType)
         {
+            if (_kernel == null)
+                throw new ObjectDisposedException("this", "This scope has already been disposed");
+
             return _kernel.GetAll(serviceType);
         }
 
@@ -40,7 +58,6 @@ namespace IOC.Ninject
 
             // REPOSITORIES (with module)
             _kernel.Load(new RepositoryModule());
-
         }
     }
 }

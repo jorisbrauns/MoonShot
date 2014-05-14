@@ -10,6 +10,7 @@ angular.module('moonShot', [
 ]).
 config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/Home', { templateUrl: 'Views/Home.html', controller: 'HomeController' });
-    //$routeProvider.when('/view2', { templateUrl: 'partials/partial2.html', controller: 'MyCtrl2' });
+    $routeProvider.when('/About', { templateUrl: 'Views/About.html', controller: 'AboutController' });
+    $routeProvider.when('/Contact', { templateUrl: 'Views/Contact.html', controller: 'ContactsController' });
     $routeProvider.otherwise({ redirectTo: '/Home' });
 }]);

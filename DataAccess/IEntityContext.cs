@@ -11,6 +11,7 @@ namespace DataAccess
         DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
         DbSet<TEntity> Set<TEntity>() where TEntity : class;
 
-        IDbSet<Bank> Banken { get; set; }
+        IDbSet<Bank> Banks { get; set; }
+        IDbSet<Person> Persons { get; set; }
     }
 }

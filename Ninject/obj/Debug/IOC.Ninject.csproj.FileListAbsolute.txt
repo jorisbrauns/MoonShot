@@ -56,3 +56,7 @@ C:\Users\ex02015\Documents\Visual Studio 2013\Projects\MyMVCTemplate\Ninject\bin
 C:\Users\ex02015\Documents\Visual Studio 2013\Projects\MyMVCTemplate\Ninject\obj\Debug\IOC.Ninject.csprojResolveAssemblyReference.cache
 C:\Users\ex02015\Documents\Visual Studio 2013\Projects\MyMVCTemplate\Ninject\obj\Debug\IOC.Ninject.dll
 C:\Users\ex02015\Documents\Visual Studio 2013\Projects\MyMVCTemplate\Ninject\obj\Debug\IOC.Ninject.pdb
+C:\Users\ex02015\Documents\Visual Studio 2013\Projects\MyMVCTemplate\Ninject\bin\Debug\Ninject.Web.Common.dll
+C:\Users\ex02015\Documents\Visual Studio 2013\Projects\MyMVCTemplate\Ninject\bin\Debug\System.Web.Http.WebHost.dll
+C:\Users\ex02015\Documents\Visual Studio 2013\Projects\MyMVCTemplate\Ninject\bin\Debug\Ninject.Web.Common.xml
+C:\Users\ex02015\Documents\Visual Studio 2013\Projects\MyMVCTemplate\Ninject\bin\Debug\System.Web.Http.WebHost.xml

@@ -18,13 +18,13 @@ namespace Moonshot
                 "~/Scripts/angular-route.js",
                 "~/Scripts/angular-animate.js",
 
-                //Base includes
+                //Base includes,
+                "~/app.js",
                 "~/Controllers/BaseController.js",
                 "~/Controllers/*.js",
                 "~/Directives/*.js",
                 "~/Filters/*.js",
-                "~/Plugins/*.js",
-                "~/app.js"
+                "~/Plugins/*.js"
             ));
 
             bundles.Add(new StyleBundle("~/bundles/css").Include(

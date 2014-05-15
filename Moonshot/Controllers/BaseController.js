@@ -1,1 +1,4 @@
-﻿var ctr = angular.module('moonShot.controllers', ['ui.bootstrap']);
+﻿(function BaseController(ng, mOS) {
+    'use strict';
+    ng.module('moonShot.controllers', ['ui.bootstrap']);
+}(angular, MoonShotOs));

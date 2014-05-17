@@ -16,7 +16,7 @@ Used design patterns
 ====================
 - Repositories
 - Unit Of Work
-- Inversion Of controler (ioc)
+- Inversion Of controle (ioc)
 - MVVM
 - MVC
 - Bundeling & Minification

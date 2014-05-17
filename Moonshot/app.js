@@ -1,6 +1,7 @@
 ﻿var MoonShotOs = angular.module('moonShot', [
     'ngRoute',
     'loadingBar',
+    'sortBy',
     'ngAnimate',
     'ui.bootstrap'
 ]).

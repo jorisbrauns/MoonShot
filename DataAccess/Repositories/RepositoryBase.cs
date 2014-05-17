@@ -10,7 +10,7 @@ namespace DataAccess.Repositories
     public abstract class RepositoryBase<TEntity> :  IRepository<TEntity>
         where TEntity : BaseEntity
     {
-        private readonly IUnitOfWork _unitOfWork;
+        protected readonly IUnitOfWork _unitOfWork;
 
         protected IDbSet<TEntity> DbSet { get; private set; }
 

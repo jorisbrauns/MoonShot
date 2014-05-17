@@ -20,12 +20,6 @@ namespace WebApi.Controllers
             _personRepository = personRepository;
         }
 
-        // GET: api/Persons
-        //public IEnumerable<Person> Get()
-        //{
-        //    return _personRepository.FindAll();
-        //}
-
         public IPagination<Person> Get([FromUri] PagingCriteria pagingCriteria, [FromUri] Person personFilter)
         {
             int totalRecords = 0;
@@ -38,23 +32,24 @@ namespace WebApi.Controllers
                 Age = OrderBy.None,
             };
 
-            var records = _personRepository.GetByPaging(pagingCriteria,personFilter, orderBy, out totalRecords);
+            var records = _personRepository.GetByPaging(pagingCriteria, personFilter, orderBy, out totalRecords);
 
             IPagination<Person> result = new Pagination<Person>
             {
                 Records = records.ToList(),
                 TotalItems = totalRecords,
-                PageSize = 25
+                PageSize = 25,
+                Page = pagingCriteria.Page
             };
 
             return result;
         }
 
         // GET: api/Persons/5
-        //public Person Get(int id)
-        //{
-        //    return _personRepository.Get(id);
-        //}
+        public Person Get(int id)
+        {
+            return _personRepository.Get(id);
+        }
 
         // POST: api/Persons
         public bool Post(Person person)

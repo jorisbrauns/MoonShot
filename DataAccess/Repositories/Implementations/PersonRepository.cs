@@ -1,8 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using DataAccess.uow;
 using Entities;
 using Entities.Infrastructure;
+using System.Data.Entity.Infrastructure;
 
 namespace DataAccess.Repositories.Implementations
 {
@@ -19,10 +22,12 @@ namespace DataAccess.Repositories.Implementations
             var query = GetByFilter(filter, orderBy, DbSet);
             totalRecords = query.Count();
 
-            return query.Skip((criteria.Page - 1) * criteria.PageSize).Take(criteria.PageSize).ToList();
+            //var trace = ((DbQuery<Person>)query).ToString();
+
+           return query.Skip((criteria.Page - 1) * criteria.PageSize).Take(criteria.PageSize).ToList();
         }
 
-        public IEnumerable<Person> GetByFilter(Person  filter, PersonOrderBy orderby, IQueryable<Person> query)
+        public IEnumerable<Person> GetByFilter(Person filter, PersonOrderBy orderby, IQueryable<Person> query)
         {
 
             #region Filtering
@@ -34,7 +39,10 @@ namespace DataAccess.Repositories.Implementations
             {
                 query = query.Where(f => f.LastName.Contains(filter.LastName));
             }
-            query = query.Where(f => f.Age == filter.Age);
+            if (filter.Age != null)
+            {
+                query = query.Where(f => f.Age == filter.Age);
+            }
             #endregion
 
             #region Sorting

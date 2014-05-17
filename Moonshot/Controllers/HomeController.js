@@ -4,8 +4,8 @@
         
         $scope.Headers = [
             { Title: "Id", Value: "id" },
-            { Title: "Firstname", Value: "firstname" },
-            { Title: "Lastname", Value: "lastname" },
+            { Title: "First Name", Value: "FirstName" },
+            { Title: "Last Name", Value: "LastName" },
             { Title: "Age", Value: "age" }
         ];
 
@@ -15,18 +15,26 @@
 
         $scope.FilterCriteria = {
             PageSize : 10,
-            Page: 1
+            Page: 1,
+            sortDir: false,
+            Sorting: 'FirstName',
         };
 
         $scope.FetchResult = function () {
             return PersonService.Persons($scope.FilterCriteria).then(function (data) {
-                console.log(data);
                 $scope.Persons = data.Records;
                 $scope.TotalItems = data.TotalItems;
             }, function () {
                 $scope.Persons = [];
                 $scope.TotalItems = 0;
             });
+        };
+
+        $scope.onSort = function (sortedBy, sortDir) {
+            console.log(sortedBy + " " + sortDir);
+            $scope.FilterCriteria.sortDir = sortDir;
+            $scope.FilterCriteria.Sorting = sortedBy;
+            $scope.FetchResult();
         };
 
         $scope.FetchResult();

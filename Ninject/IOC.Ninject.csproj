@@ -75,6 +75,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modules\BusinessModule.cs" />
     <Compile Include="WebApiNinjectDependencyResolver.cs" />
     <Compile Include="Modules\RepositoryModule.cs" />
     <Compile Include="NinjectDependencyScope.cs" />

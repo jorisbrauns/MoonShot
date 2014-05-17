@@ -2,10 +2,7 @@
     'ngRoute',
     'loadingBar',
     'ngAnimate',
-    //'moonshot.filters',
-    //'moonshot.services',
-    //'moonshot.directives',
-    'moonShot.controllers'
+    'ui.bootstrap'
 ]).
 config(['$routeProvider', function ($routeProvider) {
     $routeProvider

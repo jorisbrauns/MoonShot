@@ -23,6 +23,7 @@ namespace Moonshot
                 "~/Controllers/BaseController.js",
                 "~/Controllers/*.js",
                 "~/Directives/*.js",
+                "~/Services/*.js",
                 "~/Filters/*.js",
                 "~/Plugins/*.js"
             ));

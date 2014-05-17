@@ -2,8 +2,8 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th ng-repeat="header in headers">
-                    <sort-by onsort="onSort" sortdir="filterCriteria.sortDir" sortedby="filterCriteria.Sorting" sortvalue="{{ header.Value }}">{{ header.Title }}</sort-by>
+                <th ng-repeat="header in Headers">
+                    <sort-by onsort="onSort" sortdir="FilterCriteria.sortDir" sortedby="FilterCriteria.Sorting" sortvalue="{{ header.Value }}">{{ header.Title }}</sort-by>
                 </th>
                 <th>
                 </th>
@@ -12,9 +12,9 @@
         <tbody>
             <tr>
                 <td>#</td>
-                <td><input data-on-enter-blur data-on-blur-change="filterResult()" ng-model="filterCriteria.FilterFirstName" type="text" class="form-control" /></td>
-                <td><input data-on-enter-blur data-on-blur-change="filterResult()" ng-model="filterCriteria.FilterLastName" type="text" class="form-control" /></td>
-                <td><input data-on-enter-blur data-on-blur-change="filterResult()" ng-model="filterCriteria.FilterAge" type="text" class="form-control" /></td>
+                <td><input data-on-enter-blur data-on-blur-change="FilterResult()" ng-model="FilterCriteria.FilterFirstName" type="text" class="form-control" /></td>
+                <td><input data-on-enter-blur data-on-blur-change="FilterResult()" ng-model="FilterCriteria.FilterLastName" type="text" class="form-control" /></td>
+                <td><input data-on-enter-blur data-on-blur-change="FilterResult()" ng-model="FilterCriteria.FilterAge" type="text" class="form-control" /></td>
                 <!--<td>
                         <select ng-change="filterResult()" ng-model="filterCriteria.FilterSector" ng-options="sector.Omschrijving as sector.Omschrijving for sector in sectoren | orderBy:'Omschrijving'" class="form-control">
                             <option value=""> </option>
@@ -22,7 +22,7 @@
                     </td>-->
                 <td></td>
             </tr>
-            <tr ng-repeat="person in persons">
+            <tr ng-repeat="person in Persons">
                 <td><a ng-click="open(person)">{{person.Id}}</a></td>
                 <td>{{person.Firstname}}</td>
                 <td>{{person.Lastname}}</td>
@@ -35,7 +35,7 @@
             </tr>
         </tbody>
     </table>
-    <div ng-show="totalItems == 0">
+    <div ng-show="TotalItems == 0">
         <h3>No persons found...</h3>
     </div>
 
@@ -43,10 +43,10 @@
     <div class="row">
 
     <div class="col-xs-12 col-md-10">
-        <pagination boundary-links="true" ng-show="totalItems > filterCriteria.PageSize" max-size="15" rotate="false"
-                    previous-text=" &lsaquo;" next-text="&rsaquo;" items-per-page="filterCriteria.PageSize"
+        <pagination boundary-links="true" ng-show="TotalItems > FilterCriteria.PageSize" max-size="15" rotate="false"
+                    previous-text=" &lsaquo;" next-text="&rsaquo;" items-per-page="FilterCriteria.PageSize"
                     first-text="&laquo;" last-text="&raquo;"
-                    total-items="totalItems" ng-model="filterCriteria.Page" ng-change="fetchResult()"></pagination>
+                    total-items="totalItems" ng-model="FilterCriteria.Page" ng-change="FetchResult()"></pagination>
     </div>
 
     <div class="col-xs-12 col-md-2">
@@ -54,8 +54,8 @@
             <span class="input-group-addon">
                 <i class="glyphicon glyphicon-list"></i>
             </span>
-            <select ng-model="filterCriteria.PageSize" class="form-control" ng-change="fetchResult()"
-                    ng-options="t for t in availablePageSizes">
+            <select ng-model="FilterCriteria.PageSize" class="form-control" ng-change="FetchResult()"
+                    ng-options="t for t in AvailablePageSizes">
                 <option>--</option>
             </select>
         </div>

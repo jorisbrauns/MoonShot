@@ -1,30 +1,34 @@
 ﻿(function HomeController(ng, mOS) {
     'use strict';
-    mOS.controller('HomeController', ['$rootScope', '$scope', '$log', function ($rootScope, $scope, $log) {
-        $scope.headers = [
+    mOS.controller('HomeController', function ($rootScope, $scope, PersonService) {
+        
+        $scope.Headers = [
             { Title: "Id", Value: "id" },
             { Title: "Firstname", Value: "firstname" },
             { Title: "Lastname", Value: "lastname" },
             { Title: "Age", Value: "age" }
         ];
 
-        $scope.availablePageSizes = [10, 25, 50, 75, 100];
+        $scope.AvailablePageSizes = [10, 25, 50, 75, 100];
 
-        $scope.totalItems = 25;
+        $scope.TotalItems = 25;
 
-        $scope.filterCriteria = {
+        $scope.FilterCriteria = {
             PageSize : 10,
             Page: 1
         };
 
-        $scope.persons = [
-            { Id:2,Firstname:"Joris", Lastname:"Brauns", Age:26}
-        ];
-
-        $scope.fetchResult = function() {
-            $log.info('Feth results: ' + new Date());
+        $scope.FetchResult = function () {
+            return PersonService.Persons($scope.FilterCriteria).then(function (data) {
+                $scope.Persons = data.Records;
+                $scope.TotalItems = data.TotalItems;
+            }, function () {
+                $scope.Persons = [];
+                $scope.TotalItems = 0;
+            });
         };
 
-    }]); 
+        $scope.FetchResult();
 
+    });
 })(angular, MoonShotOs);

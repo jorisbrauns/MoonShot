@@ -15,4 +15,3 @@ Used design patterns
 - MVVM
 - MVC
 - Bundeling & Minification
-- Service Layer

@@ -4,12 +4,12 @@ Technology Stack Demo
 - Web Api 2
 - Entity Framework
 - Ninject
+- owin/katana
 
 Javascript
 - Angular
 - Angular UI
-- Bootstrap 3
-- owin/katana
+- Bootstrap 3 (yeah yeah its css and js mixedup like a cocktail!)
 
 
 Used design patterns

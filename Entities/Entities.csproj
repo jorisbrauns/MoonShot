@@ -42,8 +42,11 @@
   <ItemGroup>
     <Compile Include="Bank.cs" />
     <Compile Include="BaseEntity.cs" />
+    <Compile Include="Infrastructure\PagingCriteria.cs" />
     <Compile Include="Job.cs" />
+    <Compile Include="OrderBy.cs" />
     <Compile Include="Person.cs" />
+    <Compile Include="PersonOrderBy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

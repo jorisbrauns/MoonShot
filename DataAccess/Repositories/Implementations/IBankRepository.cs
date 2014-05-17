@@ -5,6 +5,5 @@ namespace DataAccess.Repositories.Implementations
 {
     public interface IBankRepository : IRepository<Bank>
     {
-        IEnumerable<Bank> FindAll();
     }
 }

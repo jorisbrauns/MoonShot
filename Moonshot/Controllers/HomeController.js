@@ -20,6 +20,7 @@
 
         $scope.FetchResult = function () {
             return PersonService.Persons($scope.FilterCriteria).then(function (data) {
+                console.log(data);
                 $scope.Persons = data.Records;
                 $scope.TotalItems = data.TotalItems;
             }, function () {

@@ -1,8 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
 using DataAccess.Repositories.Implementations;
 using DataAccess.uow;
 using Entities;
+using Entities.Infrastructure;
+using WebApi.RequestsEntities;
 
 namespace WebApi.Controllers
 {
@@ -17,34 +20,58 @@ namespace WebApi.Controllers
             _personRepository = personRepository;
         }
 
-        // GET: api/Default
-        public IEnumerable<Person> Get()
+        // GET: api/Persons
+        //public IEnumerable<Person> Get()
+        //{
+        //    return _personRepository.FindAll();
+        //}
+
+        public IPagination<Person> Get([FromUri] PagingCriteria pagingCriteria, [FromUri] Person personFilter)
         {
-            return _personRepository.FindAll();
+            int totalRecords = 0;
+
+            var orderBy = new PersonOrderBy
+            {
+                Id = OrderBy.None,
+                FirstName = OrderBy.Ascending,
+                LastName = OrderBy.None,
+                Age = OrderBy.None,
+            };
+
+            var records = _personRepository.GetByPaging(pagingCriteria,personFilter, orderBy, out totalRecords);
+
+            IPagination<Person> result = new Pagination<Person>
+            {
+                Records = records.ToList(),
+                TotalItems = totalRecords,
+                PageSize = 25
+            };
+
+            return result;
         }
 
-        // GET: api/Default/5
-        public Person Get(int id)
-        {
-            return _personRepository.Get(id);
-        }
+        // GET: api/Persons/5
+        //public Person Get(int id)
+        //{
+        //    return _personRepository.Get(id);
+        //}
 
-        // POST: api/Default
-        public void Post(Person person)
+        // POST: api/Persons
+        public bool Post(Person person)
         {
             _personRepository.Add(person);
-            _unitOfWork.Save();
+           return _unitOfWork.Save() > 0;
         }
 
-        // PUT: api/Default/5
+        // PUT: api/Persons/5
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE: api/Default/5
+        // DELETE: api/Persons/5
         public void Delete(int id)
         {
-             _personRepository.Delete(this.Get(id));
+             //_personRepository.Delete(this.Get(id));
         }
     }
 }

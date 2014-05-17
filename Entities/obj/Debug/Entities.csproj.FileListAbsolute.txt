@@ -11,4 +11,3 @@ C:\Users\joris\Documents\Visual Studio 2013\Projects\MyMVCTemplate\Entities\bin\
 C:\Users\joris\Documents\Visual Studio 2013\Projects\MyMVCTemplate\Entities\bin\Debug\Entities.pdb
 C:\Users\joris\Documents\Visual Studio 2013\Projects\MyMVCTemplate\Entities\obj\Debug\Entities.dll
 C:\Users\joris\Documents\Visual Studio 2013\Projects\MyMVCTemplate\Entities\obj\Debug\Entities.pdb
-C:\Users\joris\Documents\Visual Studio 2013\Projects\MyMVCTemplate\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache

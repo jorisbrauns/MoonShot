@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Http;
-using DataAccess.Repositories.Implementations;
+using DataAccess.Repositories;
 using DataAccess.uow;
 using Entities;
 using Entities.Infrastructure;
-using WebApi.RequestsEntities;
 
 namespace WebApi.Controllers
 {
@@ -20,25 +18,26 @@ namespace WebApi.Controllers
             _personRepository = personRepository;
         }
 
-        public IPagination<Person> Get([FromUri] PagingCriteria pagingCriteria, [FromUri] Person personFilter)
+        public IPagination<Person> Get([FromUri] PagingCriteria pagingCriteria, [FromUri] Person personFilter, [FromUri] bool OrderBy, [FromUri] string OrderOn)
         {
             int totalRecords = 0;
+            Entities.OrderBy order = OrderBy ? Entities.OrderBy.Ascending : Entities.OrderBy.Descending;
 
             var orderBy = new PersonOrderBy
             {
-                Id = OrderBy.None,
-                FirstName = OrderBy.Ascending,
-                LastName = OrderBy.None,
-                Age = OrderBy.None,
+                Id = OrderOn == "Id" ? order : Entities.OrderBy.None,
+                FirstName = OrderOn == "FirstName" ? order : Entities.OrderBy.None,
+                LastName = OrderOn == "LastName" ? order : Entities.OrderBy.None,
+                Age = OrderOn == "Age" ? order : Entities.OrderBy.None,
             };
 
-            var records = _personRepository.GetByPaging(pagingCriteria, personFilter, orderBy, out totalRecords);
+            var dataResult = _personRepository.GetByPaging(pagingCriteria, personFilter, orderBy, out totalRecords);
 
             IPagination<Person> result = new Pagination<Person>
             {
-                Records = records.ToList(),
+                Records = dataResult.ToList(),
                 TotalItems = totalRecords,
-                PageSize = 25,
+                PageSize = pagingCriteria.PageSize,
                 Page = pagingCriteria.Page
             };
 

@@ -57,10 +57,10 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\Implementations\BankRepository.cs" />
-    <Compile Include="Repositories\Implementations\IBankRepository.cs" />
-    <Compile Include="Repositories\Implementations\IPersonRepository.cs" />
-    <Compile Include="Repositories\Implementations\PersonRepository.cs" />
+    <Compile Include="Repositories\BankRepository.cs" />
+    <Compile Include="Repositories\IBankRepository.cs" />
+    <Compile Include="Repositories\IPersonRepository.cs" />
+    <Compile Include="Repositories\PersonRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="UnitOfWork\IUnitOfWork.cs" />

@@ -3,7 +3,7 @@ using System.Linq;
 using Entities;
 using Entities.Infrastructure;
 
-namespace DataAccess.Repositories.Implementations
+namespace DataAccess.Repositories
 {
     public interface IPersonRepository : IRepository<Person>
     {

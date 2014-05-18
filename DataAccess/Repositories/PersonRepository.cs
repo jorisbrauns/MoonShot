@@ -1,13 +1,10 @@
 ﻿using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Core.Objects;
 using System.Linq;
 using DataAccess.uow;
 using Entities;
 using Entities.Infrastructure;
-using System.Data.Entity.Infrastructure;
 
-namespace DataAccess.Repositories.Implementations
+namespace DataAccess.Repositories
 {
     public class PersonRepository : RepositoryBase<Person>, IPersonRepository
     {

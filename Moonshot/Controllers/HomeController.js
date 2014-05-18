@@ -2,24 +2,23 @@
     'use strict';
     mOS.controller('HomeController', function ($rootScope, $scope, PersonService) {
         
+        //Fields
         $scope.Headers = [
-            { Title: "Id", Value: "id" },
+            { Title: "Id", Value: "Id" },
             { Title: "First Name", Value: "FirstName" },
             { Title: "Last Name", Value: "LastName" },
-            { Title: "Age", Value: "age" }
+            { Title: "Age", Value: "Age" }
         ];
-
         $scope.AvailablePageSizes = [10, 25, 50, 75, 100];
-
-        $scope.TotalItems = 25;
-
+        $scope.TotalItems = 0;
         $scope.FilterCriteria = {
             PageSize : 10,
             Page: 1,
-            sortDir: false,
-            Sorting: 'FirstName',
+            OrderBy: false,
+            OrderOn: 'FirstName',
         };
 
+        //Methodes
         $scope.FetchResult = function () {
             return PersonService.Persons($scope.FilterCriteria).then(function (data) {
                 $scope.Persons = data.Records;
@@ -31,8 +30,8 @@
         };
 
         $scope.onSort = function (sortedBy, sortDir) {
-            $scope.FilterCriteria.sortDir = sortDir;
-            $scope.FilterCriteria.Sorting = sortedBy;
+            $scope.FilterCriteria.OrderBy = sortDir;
+            $scope.FilterCriteria.OrderOn = sortedBy;
             $scope.FetchResult();
         };
 

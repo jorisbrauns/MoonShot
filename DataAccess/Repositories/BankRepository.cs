@@ -1,7 +1,7 @@
 ﻿using DataAccess.uow;
 using Entities;
 
-namespace DataAccess.Repositories.Implementations
+namespace DataAccess.Repositories
 {
     public class BankRepository : RepositoryBase<Bank>, IBankRepository
     {

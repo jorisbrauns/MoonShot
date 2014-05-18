@@ -1,4 +1,4 @@
-﻿using DataAccess.Repositories.Implementations;
+﻿using DataAccess.Repositories;
 using Ninject.Modules;
 
 namespace IOC.Ninject.Modules

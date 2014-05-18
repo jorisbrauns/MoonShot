@@ -12,9 +12,9 @@
         <tbody>
             <tr>
                 <td>#</td>
-                <td><input data-on-enter-blur data-on-blur-change="FilterResult()" ng-model="FilterCriteria.FilterFirstName" type="text" class="form-control" /></td>
-                <td><input data-on-enter-blur data-on-blur-change="FilterResult()" ng-model="FilterCriteria.FilterLastName" type="text" class="form-control" /></td>
-                <td><input data-on-enter-blur data-on-blur-change="FilterResult()" ng-model="FilterCriteria.FilterAge" type="text" class="form-control" /></td>
+                <td><input data-on-enter-blur data-on-blur-change="FetchResult()" ng-model="FilterCriteria.FirstName" type="text" class="form-control" /></td>
+                <td><input data-on-enter-blur data-on-blur-change="FetchResult()" ng-model="FilterCriteria.LastName" type="text" class="form-control" /></td>
+                <td><input data-on-enter-blur data-on-blur-change="FetchResult()" ng-model="FilterCriteria.Age" type="text" class="form-control" /></td>
                 <!--<td>
                         <select ng-change="filterResult()" ng-model="filterCriteria.FilterSector" ng-options="sector.Omschrijving as sector.Omschrijving for sector in sectoren | orderBy:'Omschrijving'" class="form-control">
                             <option value=""> </option>

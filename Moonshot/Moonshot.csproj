@@ -98,6 +98,8 @@
     <Content Include="Controllers\ContactController.js" />
     <Content Include="Controllers\AboutController.js" />
     <Content Include="Controllers\HomeController.js" />
+    <Content Include="Directives\onBlurChange.js" />
+    <Content Include="Directives\onEnterBlur.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="packages.config">
       <SubType>Designer</SubType>

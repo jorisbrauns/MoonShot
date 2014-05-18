@@ -31,13 +31,11 @@
         };
 
         $scope.onSort = function (sortedBy, sortDir) {
-            console.log(sortedBy + " " + sortDir);
             $scope.FilterCriteria.sortDir = sortDir;
             $scope.FilterCriteria.Sorting = sortedBy;
             $scope.FetchResult();
         };
 
         $scope.FetchResult();
-
     });
 })(angular, MoonShotOs);

@@ -2,6 +2,8 @@
     'ngRoute',
     'loadingBar',
     'sortBy',
+    'onBlurChange',
+    'onEnterBlur',
     'ngAnimate',
     'ui.bootstrap'
 ]).

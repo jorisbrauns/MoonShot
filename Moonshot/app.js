@@ -7,10 +7,7 @@
     'ngAnimate',
     'ui.bootstrap'
 ]).
-config(['$routeProvider', 'cfpLoadingBarProvider', function ($routeProvider, cfpLoadingBarProvider) {
-    cfpLoadingBarProvider.includeSpinner = true;
-    
-    
+config(['$routeProvider', function ($routeProvider) {
     $routeProvider
         .when('/Home', { templateUrl: 'Views/Home.html', controller: 'HomeController' })
         .when('/About', { templateUrl: 'Views/About.html', controller: 'AboutController' })

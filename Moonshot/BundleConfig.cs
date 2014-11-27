@@ -30,7 +30,8 @@ namespace Moonshot
 
             bundles.Add(new StyleBundle("~/bundles/css").Include(
                 "~/Content/bootstrap.css",
-                "~/Content/site.css"
+                "~/Content/site.css",
+                "~/Content/loading-bar.css"
             ));
 
             BundleTable.EnableOptimizations = false;
